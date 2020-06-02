@@ -1,0 +1,235 @@
+tabuada com variação com odd e even;
+cores cinzas para variação e hover;
+utiliza o css do projTelaLogin para centralizar;
+
+TABUADA APENAS MONTADA
+<!DOCTYPE html>
+ <html lang="pt-br"> 
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Tabuada</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="assets/css/style.css">
+    </head>
+    <body>
+        
+        <div class="content-tabuada">
+
+            <table>
+                <thead>                          <!--cabeçalho-->
+                    <tr>                         <!--tr == linha 1-->
+                        <td>Valor A</td>         <!--td == coluna-->
+                        <td>Operador B</td>
+                        <td>Valor C</td>
+                        <td>&nbsp;</td> <!-- &nbsp; é espaço-->
+                        <td>Resultado</td>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>x</td>
+                        <td>0</td>
+                        <td>=</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>x</td>
+                        <td>1</td>
+                        <td>=</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>x</td>
+                        <td>2</td>
+                        <td>=</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>x</td>
+                        <td>3</td>
+                        <td>=</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>x</td>
+                        <td>4</td>
+                        <td>=</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>x</td>
+                        <td>5</td>
+                        <td>=</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>x</td>
+                        <td>6</td>
+                        <td>=</td>
+                        <td>6</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>x</td>
+                        <td>7</td>
+                        <td>=</td>
+                        <td>7</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>x</td>
+                        <td>8</td>
+                        <td>=</td>
+                        <td>8</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>x</td>
+                        <td>9</td>
+                        <td>=</td>
+                        <td>9</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>x</td>
+                        <td>10</td>
+                        <td>=</td>
+                        <td>10</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+        
+        <script src=""></script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+AULA 225 -------------------------------------------------------------
+programando para o pc fazer as contas
+adicionei id=tabuada na table;
+criei o js tabuada;
+
+for (let valorB = 0; valorB <= 10; valorB++); Para o valorB começar em 0, ir até 10, e somar 1 a partir de 0;
+
+
+let tabuada = document.querySelector("#tabuada tbody");
+let valorA = 5;    /*dando valor 5*/
+
+tabuada.innerHTML = ""; //para limpar a tabela caso aperte F5, se não, acrescenta
+
+for (let valorB = 0; valorB <= 10; valorB++) {
+
+    let resultado = valorA * valorB;
+
+    let template = `        
+            <td>${valorA}</td>
+            <td>x</td>
+            <td>${valorB}</td>
+            <td>=</td>
+            <td>${resultado}</td>        
+        `;
+
+    // criando a linha dinamicamente
+    let tr = document.createElement("tr");
+
+    tr.innerHTML = template; //dizendo que a linha (tr) é o template
+
+    tabuada.append(tr);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+AULA 226 -------------------------------------------------------------
+jogando a tabuada dentro de uma função para depois chamá-la;
+adicionei #valorA no css;
+se apagar o value="0" placeholder aparece;
+
+
+function calculaTabuada() {
+
+    let tabuada = document.querySelector("#tabuada tbody");
+    let valorA = parseInt(document.querySelector("#valorA").value); /**parseInt transforma o String em num inteiro para não ter erro */
+
+    tabuada.innerHTML = ""; //para limpar a tabela caso aperte F5, se não, acrescenta
+
+    for (let valorB = 0; valorB <= 10; valorB++) {
+
+        let resultado = valorA * valorB;
+
+        let template = `        
+                <td>${valorA}</td>
+                <td>x</td>
+                <td>${valorB}</td>
+                <td>=</td>
+                <td>${resultado}</td>        
+            `;
+
+        // criando a linha dinamicamente
+        let tr = document.createElement("tr");
+
+        tr.innerHTML = template; //dizendo que a linha (tr) é o template
+
+        tabuada.append(tr);
+
+    }
+
+}       /*joguei a tabuada dentro da função, embaixo agora tenho que chamar */
+
+calculaTabuada();
+
+/*adicionando evento no valorA que estará mudando o calculaTabuada */
+document.querySelector("#valorA").addEventListener("change", calculaTabuada);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+AULA 227 -------------------------------------------------------------
+finalizei
+
+
+
+
